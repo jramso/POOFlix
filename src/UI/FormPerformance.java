@@ -4,7 +4,7 @@ import java.io.Console;
 
 import CDU.CDUcadastrarPf;
 
-public class FormPerformance extends Form {
+public class FormPerformance implements Form {
     private int idPf;
     private int idAtor = -1;
     private int idPers;

@@ -4,7 +4,7 @@ import java.io.Console;
 
 import CDU.*;
 
-public class FormEpisodio extends Form{
+public class FormEpisodio implements Form{
     private String id;
     private String numEP;
     private String idserie;

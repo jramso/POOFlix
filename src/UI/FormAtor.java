@@ -4,7 +4,7 @@ import java.io.Console;
 
 import CDU.CDUcadastrarAtor;
 
-public class FormAtor extends Form {
+public class FormAtor implements Form {
 
     private String id;
     private String nome;

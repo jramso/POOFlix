@@ -4,7 +4,8 @@ import java.io.Console;
 
 import CDU.*;
 
-public class FormMain extends Form {
+public class FormMain implements Form{
+    
     private CDUMain cdumain = null;
 
     public void setcdu(CDUMain cdumain) {

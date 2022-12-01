@@ -1,5 +1,6 @@
 package UI;
 
-public abstract class Form {
+public interface Form{
     public abstract void exibe();
+    
 }

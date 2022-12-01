@@ -3,7 +3,7 @@ package UI;
 import java.io.Console;
 import CDU.*;
 
-public class FormPersonagem extends Form {
+public class FormPersonagem implements Form {
 
 	private int idPs;
 	private String nomePs;
