@@ -1,7 +1,9 @@
 package domain;
 
+
 public class Ator implements OBJPOOFlix {
 //doc
+
     private int id;
     private String nome;
     private String nacionalidade;

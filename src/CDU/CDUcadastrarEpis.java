@@ -1,6 +1,7 @@
 package CDU;
 
 import domain.*;
+import persistencia.DAOepisodio;
 import UI.FormEpisodio;
 
 public class CDUcadastrarEpis extends CDU {
@@ -39,6 +40,8 @@ public class CDUcadastrarEpis extends CDU {
 
         // bd.salvarEpisodio(episodio);
         System.out.println("Salvando no banco de dados.." + episodio);
+        DAOepisodio dao = new DAOepisodio(conexaobd);
+        dao.adiciona(episodio);
         
     }
 }

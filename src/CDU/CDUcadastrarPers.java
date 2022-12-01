@@ -1,6 +1,7 @@
 package CDU;
 
 import domain.*;
+import persistencia.DAOpersonagem;
 import UI.FormPersonagem;
 
 public class CDUcadastrarPers extends CDU {
@@ -30,6 +31,8 @@ public class CDUcadastrarPers extends CDU {
 
 		// person.salvarPersonagem(person);
 		System.out.println("Salvando no banco de dados.." + person);
+		DAOpersonagem dao = new DAOpersonagem(conexaobd);
+		dao.adiciona(person);
 
 	}
 }
