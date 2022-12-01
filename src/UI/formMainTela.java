@@ -6,6 +6,7 @@ package UI;
 
 import CDU.CDUMain;
 import java.io.Console;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -89,52 +90,88 @@ public class formMainTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        Menu_Bar = new javax.swing.JMenuBar();
-        menu_POOflix = new javax.swing.JMenu();
-        subm_cadastrar = new javax.swing.JMenu();
+        LB_bemVindo = new javax.swing.JLabel();
+        btn_red_icon = new javax.swing.JButton();
+        btn_green_icon = new javax.swing.JButton();
+        btn_yellow_icon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POOFlix");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(0, 0, 0));
+        setName("Tela_FormMain"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(810, 570));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Bem Vindo ao POOflix");
+        LB_bemVindo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        LB_bemVindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LB_bemVindo.setText("Bem Vindo ao POOflix");
+        getContentPane().add(LB_bemVindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        menu_POOflix.setText("POOflix");
+        btn_red_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/img/red_icon.png"))); // NOI18N
+        btn_red_icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_red_iconMouseClicked(evt);
+            }
+        });
+        btn_red_icon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_red_iconActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_red_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 150, 150));
 
-        subm_cadastrar.setText("Cadastrar");
-        menu_POOflix.add(subm_cadastrar);
+        btn_green_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/img/green_icon.png"))); // NOI18N
+        btn_green_icon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_green_iconActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_green_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 150, 150));
 
-        Menu_Bar.add(menu_POOflix);
-
-        setJMenuBar(Menu_Bar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
+        btn_yellow_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/img/yellow_icon.png"))); // NOI18N
+        btn_yellow_icon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_yellow_iconActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_yellow_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 150, 150));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_yellow_iconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_yellow_iconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_yellow_iconActionPerformed
+
+    private void btn_red_iconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_red_iconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_red_iconActionPerformed
+
+    private void btn_green_iconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_green_iconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_green_iconActionPerformed
+
+    private void btn_red_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_red_iconMouseClicked
+        // TODO add your handling code here:
+        btn_red_icon.setVisible(false);
+        btn_green_icon.setVisible(false);
+        btn_yellow_icon.setVisible(false);
+    }//GEN-LAST:event_btn_red_iconMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar Menu_Bar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu menu_POOflix;
-    private javax.swing.JMenu subm_cadastrar;
+    private javax.swing.JLabel LB_bemVindo;
+    private javax.swing.JButton btn_green_icon;
+    private javax.swing.JButton btn_red_icon;
+    private javax.swing.JButton btn_yellow_icon;
     // End of variables declaration//GEN-END:variables
+
+
 }
