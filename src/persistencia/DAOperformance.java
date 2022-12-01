@@ -14,6 +14,8 @@ public class DAOperformance extends DAOPOOFlix{
 		conexaobd = cnx;
 	}
 
+
+    @Override
 	public int adiciona(OBJPOOFlix objpooflix) {
 		try {
 			Performance ator_personagem = (Performance) objpooflix;
@@ -45,7 +47,7 @@ public class DAOperformance extends DAOPOOFlix{
 			return -1;
 		}
 	}
-
+    @Override
 	public int deleta(OBJPOOFlix objpooflix) {
 		try {
 			Performance Perf = (Performance) objpooflix;

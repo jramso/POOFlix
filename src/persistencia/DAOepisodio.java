@@ -1,6 +1,7 @@
 package persistencia;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import domain.Episodio;
@@ -53,14 +54,43 @@ public class DAOepisodio extends DAOPOOFlix{
 
     @Override
     public int deleta(OBJPOOFlix objpooflix) {
-        // TODO Auto-generated method stub
-        return 0;
+        try {
+            Episodio episodio = (Episodio) objpooflix;
+            try (PreparedStatement ps = conexaobd.prepareStatement("delete from Episodio where id=?")) {
+                ps.setInt(1, episodio.getId());
+                ps.executeUpdate();
+            }
+            return 0;
+        } catch (SQLException e) {
+            System.out.println("Problemas em "+this.getClass().getSimpleName()+".deleta" + e.getMessage());
+            return -1;
+        }
     }
 
     @Override
     public List<OBJPOOFlix> lista() {
-        // TODO Auto-generated method stub
-        return null;
+        try {
+            List<OBJPOOFlix> Eps = new ArrayList<OBJPOOFlix>();
+
+            try (PreparedStatement ps = conexaobd.prepareStatement("select id, numep, temporada, titulo, resumo from episodio")) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    String id = String.valueOf(rs.getInt("id"));
+                    String numep = String.valueOf(rs.getInt("numep"));
+                    String temp = String.valueOf(rs.getInt("temporada"));
+                    String titulo = rs.getString("titulo");
+                    String resumo = rs.getString("resumo");
+                    Episodio ep = new Episodio(Integer.parseInt(id),Integer.parseInt(numep), Integer.parseInt(temp), titulo, resumo);
+                    Eps.add(ep);
+                }
+                rs.close();
+            }
+
+            return Eps;
+        } catch (SQLException e) {
+            System.out.println("Problemas em "+this.getClass().getSimpleName()+".lista" + e.getMessage());
+            return null;
+        }
     }
 
 }
