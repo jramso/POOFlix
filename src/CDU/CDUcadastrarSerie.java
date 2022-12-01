@@ -14,7 +14,7 @@ public class CDUcadastrarSerie extends CDU {
     public CDUcadastrarSerie(FormSerie formSerie, Connection conexaobd) {
         this.formSerie = formSerie;
         this.formSerie.setcdu(this);
-        conexaobd = conexaobd;
+        this.conexaobd = conexaobd;
     }
 
     public void exec() {
@@ -26,10 +26,11 @@ public class CDUcadastrarSerie extends CDU {
         String titulo = formSerie.gettitulo();
         int idade = Integer.valueOf(formSerie.getidademin());
 
-        serie = new Serie(Integer.parseInt(id), titulo, idade);
+        serie = new Serie(Integer.parseInt(id), titulo);
 
         System.out.println("Salvando no banco de dados.." + serie);
         DAOSerie dao = new DAOSerie(conexaobd);
+        dao.adiciona(serie);
 
     }
 }

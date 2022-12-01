@@ -74,12 +74,13 @@ public class DAOator extends DAOPOOFlix {
             try {
                 List<OBJPOOFlix> Ators = new ArrayList<OBJPOOFlix>();
     
-                try (PreparedStatement ps = conexaobd.prepareStatement("select id, titulo from Ator")) {
+                try (PreparedStatement ps = conexaobd.prepareStatement("select id, titulo, nacionalidade from Ator")) {
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         String id = String.valueOf(rs.getInt("id"));
                         String titulo = rs.getString("titulo");
-                        Ator ator = new Ator(Integer.parseInt(id), titulo);
+                        String nacio = rs.getString("nacionalidade");
+                        Ator ator = new Ator(Integer.parseInt(id), titulo,nacio);
                         Ators.add(ator);
                     }
                     

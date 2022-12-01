@@ -6,9 +6,10 @@ public class Ator implements OBJPOOFlix {
     private String nome;
     private String nacionalidade;
 
-    public Ator(int id, String nome) {
+    public Ator(int id, String nome, String nacionalidade) {
         this.id = id;
         this.nome = nome;
+        this.nacionalidade=nacionalidade;
     }
 
     public Ator() {

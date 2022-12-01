@@ -11,6 +11,11 @@ public class Serie implements OBJPOOFlix {
         this.idade = idade;
     }
 
+    public Serie(int id, String titulo) {
+        this.id = id;
+        this.titulo = titulo;
+    }
+
     // public Serie();
 
     public int getId() {
@@ -23,10 +28,6 @@ public class Serie implements OBJPOOFlix {
 
     public int getIdade() {
         return idade;
-    }
-
-    public void salvarSerie() {
-
     }
 
 }

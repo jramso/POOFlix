@@ -52,13 +52,13 @@ public class FormAtor implements Form {
 
                 formPf.setIdAtor(Integer.parseInt(id));
                 formPf.exibe();
-                continuar = c.readLine("(S)erie (E)pisodio (T)erminar): ");
+                continuar = c.readLine("(A)tor (P)erformance (T)erminar): ");
 
-                if (continuar.toLowerCase().equals("s")) {
+                if (continuar.toLowerCase().equals("a")) {
                     leserie = true;
                     leepisodio = false;
                     termina = false;
-                } else if (continuar.toLowerCase().equals("e")) {
+                } else if (continuar.toLowerCase().equals("P")) {
                     // salvar episodio no banco de dados.
                     cduca.salvarAtor(); // EM OBRAS.
                     leserie = false;
@@ -70,5 +70,17 @@ public class FormAtor implements Form {
         } // while ..
 
     }// Fim EXIBE()
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
 
 }

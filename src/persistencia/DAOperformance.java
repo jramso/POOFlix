@@ -70,7 +70,7 @@ public class DAOperformance extends DAOPOOFlix{
                     try (PreparedStatement ps = conexaobd.prepareStatement(
                             "select e.id as eid,e.numep,e.temporada,e.titulo,e.resumo"
                                     + "p.id as pid,p.nome as pnome,"
-                                    + "a.id as aid,a.nome as anome from Performance as pf "
+                                    + "a.id as aid,a.nome as anome a.nacionalidade as anacion from Performance as pf "
                                     + "join Episodio as e on(pf.idep=e.id)"
                                     + "join personagem as p on(p.id=pf.idpers)"
                                     + "join ator as a on(a.id=pf.idator);")) {
@@ -90,7 +90,8 @@ public class DAOperformance extends DAOPOOFlix{
                             //Ator
                             int aid = rs.getInt("aid");
                             String anome = rs.getString("anome");
-                            Ator at = new Ator(aid, anome);
+                            String anacion = rs.getString("anacion");
+                            Ator at = new Ator(aid, anome,anacion);
                             //Performance
                             Performance performance = new Performance(ep, pe, at);
                             //Lista de Performances
