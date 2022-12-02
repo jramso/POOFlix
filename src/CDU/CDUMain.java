@@ -8,14 +8,14 @@ import UI.FormSerie;
 import persistencia.*;
 
 public class CDUMain extends CDU {
-    private FormMain formMain;
+    private FormMain2 formMain;
     private String banco = "mfdbjbho";
     private String usuario = "mfdbjbho";
     private String senha = "3GXwClW96Y7v_lCWI-FBbebx9si0Z3ZN";
     private Conecta bd = null;
     private Connection conexao = null;
 
-    public CDUMain(FormMain formMain) {
+    public CDUMain(FormMain2 formMain) {
         this.formMain = formMain;
         this.formMain.setcdu(this);
     }

@@ -12,7 +12,7 @@ public class Main {
 //	inicio.setcdu(cdu);
 //	inicio.exibe();
 
-        formMainTela tela = new formMainTela();
+        FormMain tela = new FormMain();
         tela.exibe();
         
 
