@@ -7,6 +7,7 @@ package UI;
 import CDU.CDUMain;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.io.Console;
 import javax.swing.ImageIcon;
 
@@ -14,12 +15,16 @@ import javax.swing.ImageIcon;
  *
  * @author josue
  */
-public class FormMain extends javax.swing.JFrame {
+public class FormMain extends javax.swing.JFrame implements Form {
 
-    private CDUMain cdumain = null;
+    private CDUMain cdumain;
 
-    public void setcdu(CDUMain cdumain) {
-        this.cdumain = cdumain;
+    public CDUMain getCdumain() {
+        return cdumain;
+    }
+
+    public void setcdu(CDUMain cdu) {
+        this.cdumain = cdu;
     }
 
     public void exibe() {
@@ -91,7 +96,9 @@ public class FormMain extends javax.swing.JFrame {
     public FormMain() {
         initComponents();
         getContentPane().setBackground(Color.BLACK);
-        telaCadastro.setVisible(false);
+        cadastra.setVisible(false);
+        cdumain = new CDUMain(this);
+
     }
 
     /**
@@ -114,20 +121,25 @@ public class FormMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         LB_bemVindo = new javax.swing.JLabel();
         btn_red_icon = new javax.swing.JButton();
         btn_green_icon = new javax.swing.JButton();
         btn_yellow_icon = new javax.swing.JButton();
-        telaCadastro = new javax.swing.JInternalFrame();
-        cadSerie = new javax.swing.JButton();
-        cadEp = new javax.swing.JButton();
-        cadPerson = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        cadastra = new java.awt.Panel();
+        cadSerie1 = new javax.swing.JButton();
+        cadEp1 = new javax.swing.JButton();
+        cadPerson1 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("POOFlix");
@@ -176,6 +188,11 @@ public class FormMain extends javax.swing.JFrame {
         getContentPane().add(btn_green_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 150, 150));
 
         btn_yellow_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/img/yellow_icon.png"))); // NOI18N
+        btn_yellow_icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_yellow_iconMouseClicked(evt);
+            }
+        });
         btn_yellow_icon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_yellow_iconActionPerformed(evt);
@@ -183,147 +200,125 @@ public class FormMain extends javax.swing.JFrame {
         });
         getContentPane().add(btn_yellow_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 150, 150));
 
-        telaCadastro.setBackground(new java.awt.Color(102, 102, 102));
-        telaCadastro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        telaCadastro.setDesktopIcon(null);
-        telaCadastro.setFocusable(false);
-        telaCadastro.setFrameIcon(null);
-        telaCadastro.setMinimumSize(new java.awt.Dimension(650, 400));
-        telaCadastro.setPreferredSize(new java.awt.Dimension(650, 400));
-        telaCadastro.setRequestFocusEnabled(false);
-        telaCadastro.setVerifyInputWhenFocusTarget(false);
-        telaCadastro.setVisible(true);
-        telaCadastro.setBackground(Color.BLACK);
+        cadastra.setBackground(new java.awt.Color(0, 0, 0));
 
-        cadSerie.setBackground(new java.awt.Color(153, 153, 153));
-        cadSerie.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadSerie.setForeground(new java.awt.Color(255, 255, 255));
-        cadSerie.setText("1. Cadastrar Série");
-        cadSerie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadSerie.setContentAreaFilled(false);
-        cadSerie.setFocusPainted(false);
-        cadSerie.setFocusable(false);
-        cadSerie.addMouseListener(new java.awt.event.MouseAdapter() {
+        cadSerie1.setBackground(new java.awt.Color(153, 153, 153));
+        cadSerie1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadSerie1.setForeground(new java.awt.Color(255, 255, 255));
+        cadSerie1.setText("1. Cadastrar Série");
+        cadSerie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadSerie1.setContentAreaFilled(false);
+        cadSerie1.setFocusPainted(false);
+        cadSerie1.setFocusable(false);
+        cadSerie1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadSerieMouseClicked(evt);
-            }
-        });
-        cadSerie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadSerieActionPerformed(evt);
+                cadSerie1MouseClicked(evt);
             }
         });
 
-        cadEp.setBackground(new java.awt.Color(153, 153, 153));
-        cadEp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadEp.setForeground(new java.awt.Color(255, 255, 255));
-        cadEp.setText("2. Cadastrar Episódio");
-        cadEp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadEp.setContentAreaFilled(false);
-        cadEp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadEpActionPerformed(evt);
-            }
-        });
+        cadEp1.setBackground(new java.awt.Color(153, 153, 153));
+        cadEp1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadEp1.setForeground(new java.awt.Color(255, 255, 255));
+        cadEp1.setText("2. Cadastrar Episódio");
+        cadEp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadEp1.setContentAreaFilled(false);
 
-        cadPerson.setBackground(new java.awt.Color(153, 153, 153));
-        cadPerson.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadPerson.setForeground(new java.awt.Color(255, 255, 255));
-        cadPerson.setText("3. Cadastrar Personagem");
-        cadPerson.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadPerson.setContentAreaFilled(false);
-        cadPerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadPersonActionPerformed(evt);
-            }
-        });
+        cadPerson1.setBackground(new java.awt.Color(153, 153, 153));
+        cadPerson1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadPerson1.setForeground(new java.awt.Color(255, 255, 255));
+        cadPerson1.setText("3. Cadastrar Personagem");
+        cadPerson1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadPerson1.setContentAreaFilled(false);
 
-        jButton4.setBackground(new java.awt.Color(153, 153, 153));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("4. Cadastrar Ator");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButton7.setBackground(new java.awt.Color(153, 153, 153));
+        jButton7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("4. Cadastrar Ator");
+        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton7.setContentAreaFilled(false);
 
-        jButton5.setBackground(new java.awt.Color(153, 153, 153));
-        jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("5. Cadastrar Performance");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
+        jButton8.setBackground(new java.awt.Color(153, 153, 153));
+        jButton8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("5. Cadastrar Performance");
+        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton8.setContentAreaFilled(false);
 
-        jButton6.setBackground(new java.awt.Color(153, 153, 153));
-        jButton6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("6. Sair");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        jButton9.setBackground(new java.awt.Color(153, 153, 153));
+        jButton9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setText("6. Sair");
+        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton9.setContentAreaFilled(false);
 
-        javax.swing.GroupLayout telaCadastroLayout = new javax.swing.GroupLayout(telaCadastro.getContentPane());
-        telaCadastro.getContentPane().setLayout(telaCadastroLayout);
-        telaCadastroLayout.setHorizontalGroup(
-            telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaCadastroLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(telaCadastroLayout.createSequentialGroup()
-                        .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cadPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(telaCadastroLayout.createSequentialGroup()
-                                .addComponent(cadEp, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                                .addGap(108, 108, 108))
-                            .addGroup(telaCadastroLayout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(telaCadastroLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-        );
-        telaCadastroLayout.setVerticalGroup(
-            telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaCadastroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(cadEp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(telaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cadPerson, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        javax.swing.GroupLayout cadastraLayout = new javax.swing.GroupLayout(cadastra);
+        cadastra.setLayout(cadastraLayout);
+        cadastraLayout.setHorizontalGroup(
+                cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(107, Short.MAX_VALUE)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(cadastraLayout.createSequentialGroup()
+                                                .addGroup(cadastraLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                false)
+                                                        .addComponent(cadSerie1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cadPerson1))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(cadastraLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(cadEp1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(cadastraLayout.createSequentialGroup()
+                                                .addGap(101, 101, 101)
+                                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(101, 101, 101))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 202,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        cadastraLayout.setVerticalGroup(
+                cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(27, Short.MAX_VALUE)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cadSerie1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cadEp1, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cadPerson1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)));
 
-        getContentPane().add(telaCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 650, 450));
+        getContentPane().add(cadastra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 600, 440));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadSerieMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadSerieMouseClicked
+    private void btn_yellow_iconMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_yellow_iconMouseClicked
+        btn_red_iconMouseClicked(evt);
+    }// GEN-LAST:event_btn_yellow_iconMouseClicked
+
+    private void cadSerie1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadSerieMouseClicked
         // TODO add your handling code here:
         String op = "1";
         cdumain.processaOpcao(op);
@@ -354,28 +349,13 @@ public class FormMain extends javax.swing.JFrame {
         btn_red_icon.setVisible(false);
         btn_green_icon.setVisible(false);
         btn_yellow_icon.setVisible(false);
-        telaCadastro.setVisible(true);
+        cadastra.setVisible(true);
+
     }// GEN-LAST:event_btn_red_iconMouseClicked
-    
-    private void btn_green_iconMouseClicked(java.awt.event.MouseEvent evt) {                                            
+
+    private void btn_green_iconMouseClicked(java.awt.event.MouseEvent evt) {
         btn_red_iconMouseClicked(evt);
-    }     
-
-    private void cadSerieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton1ActionPerformed
-
-    private void cadEpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton2ActionPerformed
-
-    private void cadPersonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton4ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -386,13 +366,13 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btn_green_icon;
     private javax.swing.JButton btn_red_icon;
     private javax.swing.JButton btn_yellow_icon;
-    private javax.swing.JButton cadEp;
-    private javax.swing.JButton cadPerson;
-    private javax.swing.JButton cadSerie;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JInternalFrame telaCadastro;
+    private javax.swing.JButton cadEp1;
+    private javax.swing.JButton cadPerson1;
+    private javax.swing.JButton cadSerie1;
+    private java.awt.Panel cadastra;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     // End of variables declaration//GEN-END:variables
 
 }

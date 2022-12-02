@@ -1,6 +1,6 @@
 package UI;
 
-import java.io.Console;
+//import java.io.Console;
 import CDU.*;
 
 public class FormSerie implements Form {
@@ -14,7 +14,7 @@ public class FormSerie implements Form {
     }
 
     public void exibe() {
-        Console c = System.console();
+        Console c = new Console();
         boolean termina = false;
         String continuar;
 
@@ -28,8 +28,9 @@ public class FormSerie implements Form {
             continuar = c.readLine("Deseja continuar?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
 
-            if (!termina) {
+            if (termina) {
                 cducs.salvarSerie();
+                System.out.print(cducs);
             }
         }
     }
