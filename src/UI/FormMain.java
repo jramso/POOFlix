@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 public class FormMain extends javax.swing.JFrame implements Form {
 
     private CDUMain cdumain;
+    private String op = "";
 
     public CDUMain getCdumain() {
         return cdumain;
@@ -126,6 +127,11 @@ public class FormMain extends javax.swing.JFrame implements Form {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -134,12 +140,12 @@ public class FormMain extends javax.swing.JFrame implements Form {
         btn_green_icon = new javax.swing.JButton();
         btn_yellow_icon = new javax.swing.JButton();
         cadastra = new java.awt.Panel();
-        cadSerie1 = new javax.swing.JButton();
-        cadEp1 = new javax.swing.JButton();
-        cadPerson1 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        cadSerie = new javax.swing.JButton();
+        cadEp = new javax.swing.JButton();
+        cadPerson = new javax.swing.JButton();
+        cadAtor = new javax.swing.JButton();
+        cadPerfo = new javax.swing.JButton();
+        sairCad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("POOFlix");
@@ -202,54 +208,94 @@ public class FormMain extends javax.swing.JFrame implements Form {
 
         cadastra.setBackground(new java.awt.Color(0, 0, 0));
 
-        cadSerie1.setBackground(new java.awt.Color(153, 153, 153));
-        cadSerie1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadSerie1.setForeground(new java.awt.Color(255, 255, 255));
-        cadSerie1.setText("1. Cadastrar Série");
-        cadSerie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadSerie1.setContentAreaFilled(false);
-        cadSerie1.setFocusPainted(false);
-        cadSerie1.setFocusable(false);
-        cadSerie1.addMouseListener(new java.awt.event.MouseAdapter() {
+        cadSerie.setBackground(new java.awt.Color(153, 153, 153));
+        cadSerie.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadSerie.setForeground(new java.awt.Color(255, 255, 255));
+        cadSerie.setText("1. Cadastrar Série");
+        cadSerie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadSerie.setContentAreaFilled(false);
+        cadSerie.setFocusPainted(false);
+        cadSerie.setFocusable(false);
+        cadSerie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadSerie1MouseClicked(evt);
+                cadSerieMouseClicked(evt);
+            }
+        });
+        cadSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // cadSerieActionPerformed(evt);
             }
         });
 
-        cadEp1.setBackground(new java.awt.Color(153, 153, 153));
-        cadEp1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadEp1.setForeground(new java.awt.Color(255, 255, 255));
-        cadEp1.setText("2. Cadastrar Episódio");
-        cadEp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadEp1.setContentAreaFilled(false);
+        cadEp.setBackground(new java.awt.Color(153, 153, 153));
+        cadEp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadEp.setForeground(new java.awt.Color(255, 255, 255));
+        cadEp.setText("2. Cadastrar Episódio");
+        cadEp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadEp.setContentAreaFilled(false);
+        cadEp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadEpMouseClicked(evt);
+            }
+        });
+        cadEp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // cadEpActionPerformed(evt);
+            }
+        });
 
-        cadPerson1.setBackground(new java.awt.Color(153, 153, 153));
-        cadPerson1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cadPerson1.setForeground(new java.awt.Color(255, 255, 255));
-        cadPerson1.setText("3. Cadastrar Personagem");
-        cadPerson1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        cadPerson1.setContentAreaFilled(false);
+        cadPerson.setBackground(new java.awt.Color(153, 153, 153));
+        cadPerson.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadPerson.setForeground(new java.awt.Color(255, 255, 255));
+        cadPerson.setText("3. Cadastrar Personagem");
+        cadPerson.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadPerson.setContentAreaFilled(false);
+        cadPerson.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadPersonMouseClicked(evt);
+            }
+        });
+        cadPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // cadPersonActionPerformed(evt);
+            }
+        });
 
-        jButton7.setBackground(new java.awt.Color(153, 153, 153));
-        jButton7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("4. Cadastrar Ator");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton7.setContentAreaFilled(false);
+        cadAtor.setBackground(new java.awt.Color(153, 153, 153));
+        cadAtor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadAtor.setForeground(new java.awt.Color(255, 255, 255));
+        cadAtor.setText("4. Cadastrar Ator");
+        cadAtor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadAtor.setContentAreaFilled(false);
+        cadAtor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // cadAtorActionPerformed(evt);
+            }
+        });
 
-        jButton8.setBackground(new java.awt.Color(153, 153, 153));
-        jButton8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("5. Cadastrar Performance");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton8.setContentAreaFilled(false);
+        cadPerfo.setBackground(new java.awt.Color(153, 153, 153));
+        cadPerfo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cadPerfo.setForeground(new java.awt.Color(255, 255, 255));
+        cadPerfo.setText("5. Cadastrar Performance");
+        cadPerfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadPerfo.setContentAreaFilled(false);
+        cadPerfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // cadPerfoActionPerformed(evt);
+            }
+        });
 
-        jButton9.setBackground(new java.awt.Color(153, 153, 153));
-        jButton9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("6. Sair");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton9.setContentAreaFilled(false);
+        sairCad.setBackground(new java.awt.Color(153, 153, 153));
+        sairCad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        sairCad.setForeground(new java.awt.Color(255, 255, 255));
+        sairCad.setText("6. Sair");
+        sairCad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        sairCad.setContentAreaFilled(false);
+        sairCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // sairCadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cadastraLayout = new javax.swing.GroupLayout(cadastra);
         cadastra.setLayout(cadastraLayout);
@@ -263,24 +309,24 @@ public class FormMain extends javax.swing.JFrame implements Form {
                                                 .addGroup(cadastraLayout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                                                 false)
-                                                        .addComponent(cadSerie1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(cadPerson1))
+                                                        .addComponent(cadPerson))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(cadastraLayout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(cadEp1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        .addComponent(cadEp, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(cadastraLayout.createSequentialGroup()
                                                 .addGap(101, 101, 101)
-                                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
+                                                .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(101, 101, 101))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 202,
+                                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 202,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         cadastraLayout.setVerticalGroup(
@@ -289,22 +335,22 @@ public class FormMain extends javax.swing.JFrame implements Form {
                                 .addContainerGap(27, Short.MAX_VALUE)
                                 .addGroup(cadastraLayout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cadSerie1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cadEp1, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        .addComponent(cadEp, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(cadastraLayout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cadPerson1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        .addComponent(cadPerson, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)));
 
@@ -314,34 +360,38 @@ public class FormMain extends javax.swing.JFrame implements Form {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cadPersonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadPersonMouseClicked
+        op = "3";
+        cdumain.processaOpcao(op);
+    }// GEN-LAST:event_cadPersonMouseClicked
+
+    private void cadEpMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadEp1MouseClicked
+        op = "2";
+        cdumain.processaOpcao(op);
+
+    }// GEN-LAST:event_cadEp1MouseClicked
+
     private void btn_yellow_iconMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_yellow_iconMouseClicked
         btn_red_iconMouseClicked(evt);
     }// GEN-LAST:event_btn_yellow_iconMouseClicked
 
-    private void cadSerie1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadSerieMouseClicked
-        // TODO add your handling code here:
-        String op = "1";
+    private void cadSerieMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadSerieMouseClicked
+        op = "1";
         cdumain.processaOpcao(op);
     }// GEN-LAST:event_cadSerieMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton6ActionPerformed
-
     private void btn_yellow_iconActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_yellow_iconActionPerformed
-        // TODO add your handling code here:
+        btn_yellow_iconMouseClicked(null);
     }// GEN-LAST:event_btn_yellow_iconActionPerformed
 
     private void btn_red_iconActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_red_iconActionPerformed
         // TODO add your handling code here:
+        btn_red_iconMouseClicked(null);
     }// GEN-LAST:event_btn_red_iconActionPerformed
 
     private void btn_green_iconActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_green_iconActionPerformed
         // TODO add your handling code here:
+        btn_green_iconMouseClicked(null);
     }// GEN-LAST:event_btn_green_iconActionPerformed
 
     private void btn_red_iconMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_red_iconMouseClicked
@@ -366,13 +416,13 @@ public class FormMain extends javax.swing.JFrame implements Form {
     private javax.swing.JButton btn_green_icon;
     private javax.swing.JButton btn_red_icon;
     private javax.swing.JButton btn_yellow_icon;
-    private javax.swing.JButton cadEp1;
-    private javax.swing.JButton cadPerson1;
-    private javax.swing.JButton cadSerie1;
+    private javax.swing.JButton cadAtor;
+    private javax.swing.JButton cadEp;
+    private javax.swing.JButton cadPerfo;
+    private javax.swing.JButton cadPerson;
+    private javax.swing.JButton cadSerie;
     private java.awt.Panel cadastra;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton sairCad;
     // End of variables declaration//GEN-END:variables
 
 }

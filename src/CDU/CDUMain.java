@@ -26,7 +26,7 @@ public class CDUMain extends CDU {
     public void exec() {
         bd = new Conecta(usuario, senha, banco);
 
-        System.out.println("Conectando ao banco de dados POOFlix..");
+        System.out.println("Conectando ao banco de dados POOFlix.." + this.toString());
         conexaobd = bd.connectDB();
 
         if (conexaobd != null) {
@@ -77,7 +77,7 @@ public class CDUMain extends CDU {
     }
 
     public void execCadEpisodio() {
-        FormEpisodio telaEpisodio = new FormEpisodio();
+        FormEpisodio telaEpisodio = new FormEpisodio(formMain);
         CDUcadastrarEpis casoUsoEpis = new CDUcadastrarEpis(telaEpisodio);
         casoUsoEpis.exec();
     }

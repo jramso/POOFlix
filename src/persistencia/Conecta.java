@@ -41,7 +41,7 @@ public class Conecta {
         try {
             Connection conn = DriverManager.getConnection(getUrl(), props);
             setConn(conn);
-            System.out.println("Conexao sucedida");
+            System.out.println("Conexao sucedida:" + this.toString());
         } catch (SQLException sqle) {
             System.err.println(sqle);
             sqle.printStackTrace();

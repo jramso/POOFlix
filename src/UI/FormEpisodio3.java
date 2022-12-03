@@ -1,10 +1,9 @@
 package UI;
 
-import java.io.Console;
 
 import CDU.*;
 
-public class FormEpisodio implements Form{
+public class FormEpisodio3 implements Form{
     private String id;
     private String numEP;
     private String idserie;
@@ -18,7 +17,7 @@ public class FormEpisodio implements Form{
     }
 
     public void exibe(){
-        Console c = System.console();
+        Console c = new Console();
         boolean termina = false;
         String continuar;     
         boolean leserie = true;
