@@ -10,13 +10,15 @@ import persistencia.Conecta;
 
 import java.awt.Color;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author josue
+ * Classe para Formularios do tipo Episodio,
+ * onde serão contidos valores e metodos para o mesmo.
+ * @author Josué Ramos Souza
+ * @version 2.6
+ * @jramso   @link 
  */
 public class FormEpisodio extends javax.swing.JFrame implements Form {
 
@@ -31,13 +33,11 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
     private String resumo;
     private CDUcadastrarEpis cduce;
 
+    /**Metodo para indicar o Controlador de caso de uso <Strong>(CDU)</Strong> do Episodio*/
     public void setcdu(CDUcadastrarEpis cduce) {
         this.cduce = cduce;
     }
 
-    public CDUcadastrarEpis getcdu() {
-        return this.cduce;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -394,6 +394,7 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
         JOptionPane.showMessageDialog(null, idserie + ":" + cduce.getNomeSerie(Integer.parseInt(inf_Serie.getText())));
     }// GEN-LAST:event_busca_serieActionPerformed
 
+    /**Botao que pega os valores dos campos TextField passa para as variaveis e chama o metodo para persistir no Banco */
     private void salvar_ep_btnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_salvar_ep_btnActionPerformed
         id = id_ep_TF.getText();
         resumo = resum_ep.getText();
@@ -449,30 +450,47 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
         // </editor-fold>
         // </editor-fold>
 
-        /* Create and display the form */
 
     }
-
+    /**
+     * Metodo para retorno do Id
+     * @return <Strong>String</Strong> id
+     */
     public String getid() {
         return id;
     };
-
+    /**
+     * Metodo para retorno do numero de Episodios
+     * @return <Strong>String</Strong> numEp
+     */
     public String getnumEP() {
         return numEP;
     };
-
+    /**
+     * Metodo para retorno do Id da Serie
+     * @return <Strong>String</Strong> idserie
+     */
     public String getidserie() {
         return idserie;
     }
-
+    /**
+     * Metodo para retorno do Id da temporada
+     * @return <Strong>String</Strong> temporada
+     */
     public String gettemporada() {
         return temporada;
     }
-
+        /**
+     * Metodo para retorno do Titulo do Episodio
+     * @return <Strong>String</Strong> titulo
+     */
     public String gettitulo() {
         return titulo;
     }
-
+    /**
+     * Metodo para retorno do Resumo do Episodio
+     * @return <Strong>String</Strong> resumo
+     */
     public String getresumo() {
         return resumo;
     }

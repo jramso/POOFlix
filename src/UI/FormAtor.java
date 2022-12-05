@@ -1,8 +1,17 @@
 package UI;
 
-import java.io.Console;
+import javax.annotation.processing.Generated;
 
 import CDU.CDUcadastrarAtor;
+
+/**
+ * Classe para Formularios do tipo Atores,
+ * onde serão contidos valores e metodos para o mesmo.
+ * @author Josué Ramos Souza
+ * @version 2.0
+ * @jramso
+ * 
+ */
 
 public class FormAtor implements Form {
 
@@ -15,13 +24,15 @@ public class FormAtor implements Form {
 
     private CDUcadastrarAtor cduca;
 
+    /**Metodo para indicar o Controlador de caso de uso <Strong>(CDU)</Strong> do Ator*/
     public void setcdu(CDUcadastrarAtor cduca) {
         this.cduca = cduca;
     }
 
+    @Override
     public void exibe() {
 
-        Console c = System.console();
+        Console c = new Console();
         boolean termina = false;
         String continuar;
         boolean leserie = true;
@@ -70,15 +81,24 @@ public class FormAtor implements Form {
         } // while ..
 
     }// Fim EXIBE()
-
+    /**
+     * Metodo para retorno do Id
+     * @return <Strong>String</Strong> id
+     */
     public String getId() {
         return id;
     }
-
+    /**
+     * Metodo para retorno do Nome
+     * @return <Strong>String</Strong> nome
+     */
     public String getNome() {
         return nome;
     }
-
+    /**
+     * Metodo para retorno da Nacionalidade
+     * @return <Strong>String</Strong> nacionalidade
+     */
     public String getNacionalidade() {
         return nacionalidade;
     }
