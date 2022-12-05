@@ -20,7 +20,7 @@ public class FormSerie implements Form {
 
         System.out.println("CADASTRANDO SÉRIE\n");
 
-        while (!termina) {
+        do {
             id = c.readLine("ID: ");
             titulo = c.readLine("Titulo: ");
             idademin = c.readLine("Idade mínima: ");
@@ -28,11 +28,12 @@ public class FormSerie implements Form {
             continuar = c.readLine("Deseja continuar?(s/n): ");
             termina = continuar.toLowerCase().equals("n");
 
-            if (termina) {
+            if (termina == true) {
                 cducs.salvarSerie();
                 System.out.print(cducs);
+                
             }
-        }
+        } while (termina != true);
     }
 
     public String getid() {

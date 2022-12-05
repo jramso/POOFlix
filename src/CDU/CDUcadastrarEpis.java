@@ -28,7 +28,6 @@ public class CDUcadastrarEpis extends CDU {
     }
 
     public void salvarEpisodio() {
-        conexaobd= formEpisodio.getform().getCdumain().getconexaobd();
         String id = formEpisodio.getid();
         String numEP = formEpisodio.getnumEP();
         // String idserie = formEpisodio.getidserie();
@@ -45,8 +44,9 @@ public class CDUcadastrarEpis extends CDU {
 
         // bd.salvarEpisodio(episodio);
         System.out.println("Salvando no banco de dados.." + episodio);
+        
         DAOepisodio dao = new DAOepisodio(conexaobd);
         dao.adiciona(episodio);
-
+        formEpisodio.setVisible(false);
     }
 }

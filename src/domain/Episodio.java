@@ -13,6 +13,7 @@ public class Episodio implements OBJPOOFlix {
         this.numEP = numEP;
         this.temporada = temp;
         this.titulo = title;
+        this.resumo=resumo;
     }
 
     public String toString() {

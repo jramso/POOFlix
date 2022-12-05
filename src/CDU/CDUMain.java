@@ -83,13 +83,14 @@ public class CDUMain extends CDU {
     }
 
     public void execCadEpisodio() {
-        bd = new Conecta(usuario, senha, banco);
-        bd.connectDB();
-        FormEpisodio telaEpisodio = new FormEpisodio(formMain);
+        if (bd==null){
+            bd = new Conecta(usuario, senha, banco);
+            bd.connectDB();
+        }
+        FormEpisodio telaEpisodio = new FormEpisodio();
         CDUcadastrarEpis casoUsoEpis = new CDUcadastrarEpis(telaEpisodio, bd.getConn());
-        telaEpisodio.setcdu(casoUsoEpis);
         casoUsoEpis.exec();
-        bd.disconnectDB();
+        // bd.disconnectDB();
     }
 
     public void execCadPers() {

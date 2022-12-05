@@ -6,7 +6,12 @@ package UI;
 
 import CDU.CDUcadastrarEpis;
 import domain.Episodio;
+import persistencia.Conecta;
+
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +23,6 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
     /**
      * Creates new form FormEpisodio2
      */
-    private FormMain form;
-
     private String id;
     private String numEP;
     private String idserie;
@@ -28,20 +31,8 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
     private String resumo;
     private CDUcadastrarEpis cduce;
 
-    public FormEpisodio(FormMain formMain) {
-        initComponents();
-        this.form = formMain;
-        getContentPane().setBackground(Color.BLACK);
-        cduce =  new CDUcadastrarEpis(this, form.getCdumain().getconexaobd());
-
-    }
-
     public void setcdu(CDUcadastrarEpis cduce) {
         this.cduce = cduce;
-    }
-    
-    public FormMain getform(){
-        return this.form;
     }
 
     public CDUcadastrarEpis getcdu() {
@@ -55,7 +46,9 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         voltar = new javax.swing.JButton();
@@ -77,7 +70,7 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
         Tit_ep_TF = new javax.swing.JTextField();
         Res_ep_LB = new javax.swing.JLabel();
         salvar_ep_btn = new javax.swing.JButton();
-        Res_ep_TA = new javax.swing.JTextField();
+        resum_ep = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
@@ -188,135 +181,184 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
             }
         });
 
-        Res_ep_TA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Res_ep_TAActionPerformed(evt);
-            }
-        });
+        resum_ep.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
 
         javax.swing.GroupLayout dados_EPLayout = new javax.swing.GroupLayout(dados_EP);
         dados_EP.setLayout(dados_EPLayout);
         dados_EPLayout.setHorizontalGroup(
-            dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dados_EPLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Temp_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Temp_ep_TF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(id_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(id_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dados_EPLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(N_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(N_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Tit_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Tit_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(128, 128, 128))
-                    .addGroup(dados_EPLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(salvar_ep_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Res_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Res_ep_TA, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+                dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Temp_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Temp_ep_TF, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE, 71,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(
+                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(id_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(id_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                                .addGap(99, 99, 99)
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(N_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(N_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        227, Short.MAX_VALUE)
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(Tit_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Tit_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(128, 128, 128))
+                                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                                .addGap(78, 78, 78)
+                                                .addComponent(salvar_ep_btn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(78, 78, 78)
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(resum_ep, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Res_ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        Short.MAX_VALUE)))));
         dados_EPLayout.setVerticalGroup(
-            dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dados_EPLayout.createSequentialGroup()
-                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dados_EPLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(id_ep_LB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(id_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dados_EPLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(N_ep_LB)
-                            .addComponent(Tit_ep_LB))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Tit_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(N_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dados_EPLayout.createSequentialGroup()
-                        .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dados_EPLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(Temp_ep_LB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Temp_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dados_EPLayout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(Res_ep_LB)
-                                .addGap(27, 27, 27)
-                                .addComponent(Res_ep_TA, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(162, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dados_EPLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(salvar_ep_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
-        );
+                dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                                .addGap(30, 30, 30)
+                                                .addComponent(id_ep_LB)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(id_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dados_EPLayout
+                                                .createSequentialGroup()
+                                                .addGap(24, 24, 24)
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(N_ep_LB)
+                                                        .addComponent(Tit_ep_LB))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(Tit_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(N_ep_TF, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(dados_EPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(dados_EPLayout.createSequentialGroup()
+                                                .addGroup(dados_EPLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                dados_EPLayout.createSequentialGroup()
+                                                                        .addGap(56, 56, 56)
+                                                                        .addComponent(Temp_ep_LB)
+                                                                        .addPreferredGap(
+                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(Temp_ep_TF,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                dados_EPLayout.createSequentialGroup()
+                                                                        .addGap(47, 47, 47)
+                                                                        .addComponent(Res_ep_LB)
+                                                                        .addPreferredGap(
+                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(resum_ep,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                42,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addContainerGap(261, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dados_EPLayout
+                                                .createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(salvar_ep_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(19, 19, 19)))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(inf_Serie, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(busca_serie, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ser_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator2)
-            .addComponent(jSeparator1)
-            .addComponent(dados_EP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cadEp_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160)
-                        .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(368, 368, 368))))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(inf_Serie, javax.swing.GroupLayout.PREFERRED_SIZE, 86,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(busca_serie, javax.swing.GroupLayout.PREFERRED_SIZE, 82,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(ser_LB, javax.swing.GroupLayout.PREFERRED_SIZE, 124,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jSeparator2)
+                        .addComponent(jSeparator1)
+                        .addComponent(dados_EP, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                layout.createSequentialGroup()
+                                                        .addComponent(cadEp_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(160, 160, 160)
+                                                        .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addContainerGap())
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                layout.createSequentialGroup()
+                                                        .addComponent(Ep_LB, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(368, 368, 368)))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(cadEp_LB))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ser_LB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(busca_serie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inf_Serie))
-                .addGap(17, 17, 17)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ep_LB)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dados_EP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(28, 28, 28)
+                                                .addComponent(cadEp_LB))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ser_LB)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(busca_serie, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(inf_Serie))
+                                .addGap(17, 17, 17)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Ep_LB)
+                                .addGap(0, 0, 0)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dados_EP, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         getAccessibleContext().setAccessibleName("CadEP");
 
@@ -324,9 +366,9 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Res_ep_TAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Res_ep_TAActionPerformed
+    private void Res_ep_TAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Res_ep_TAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Res_ep_TAActionPerformed
+    }// GEN-LAST:event_Res_ep_TAActionPerformed
 
     private void inf_SerieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_inf_SerieActionPerformed
         // TODO add your handling code here:
@@ -340,8 +382,8 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_voltarActionPerformed
 
-        form.setVisible(true);
-        this.setVisible(false);
+        // form.setVisible(true);
+        // this.setVisible(false);
     }// GEN-LAST:event_voltarActionPerformed
 
     private void busca_serieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_busca_serieActionPerformed
@@ -354,10 +396,10 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
 
     private void salvar_ep_btnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_salvar_ep_btnActionPerformed
         id = id_ep_TF.getText();
+        resumo = resum_ep.getText();
         numEP = N_ep_TF.getText();
         temporada = Temp_ep_TF.getText();
         titulo = Tit_ep_TF.getText();
-        resumo = Res_ep_TA.getText();
 
         cduce.salvarEpisodio();
         JOptionPane.showMessageDialog(null, "Episodio salvo no banco de dados");
@@ -378,10 +420,12 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
          * look and feel.
          * For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-        
-        
+         * 
+         * 
          */
-
+        initComponents();
+        getContentPane().setBackground(Color.BLACK);
+        this.setVisible(true);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -406,12 +450,6 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
         // </editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormEpisodio(form).setVisible(true);
-                form.setVisible(false);
-            }
-        });
 
     }
 
@@ -444,7 +482,6 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
     private javax.swing.JLabel N_ep_LB;
     private javax.swing.JTextField N_ep_TF;
     private javax.swing.JLabel Res_ep_LB;
-    private javax.swing.JTextField Res_ep_TA;
     private javax.swing.JLabel Temp_ep_LB;
     private javax.swing.JTextField Temp_ep_TF;
     private javax.swing.JLabel Tit_ep_LB;
@@ -457,6 +494,7 @@ public class FormEpisodio extends javax.swing.JFrame implements Form {
     private javax.swing.JTextField inf_Serie;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField resum_ep;
     private javax.swing.JButton salvar_ep_btn;
     private javax.swing.JLabel ser_LB;
     private javax.swing.JButton voltar;

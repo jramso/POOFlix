@@ -19,7 +19,7 @@ public class DAOepisodio extends DAOPOOFlix{
     public int adiciona(OBJPOOFlix objpooflix) {
         try {
             Episodio episodio = (Episodio) objpooflix;
-            try (PreparedStatement ps = conexaobd.prepareStatement("insert into Episodio(numep,temporada,titulo,resumo) values (?, ?, ?, ?)")) {
+            try (PreparedStatement ps = conexaobd.prepareStatement("insert into Episodio values ((select MAX(e.id)+1 from episodio as e),?, ?, ?, ?)")) {
                 ps.setInt(1, (episodio.getNumEP()));
                 ps.setInt(2, (episodio.getTemporada()));
                 ps.setString(3, episodio.getTitulo());
