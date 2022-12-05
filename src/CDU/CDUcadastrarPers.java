@@ -2,13 +2,13 @@ package CDU;
 
 import domain.*;
 import persistencia.DAOpersonagem;
-import UI.FormPersonagem;
+import UI.FormPersonagem2;
 
 public class CDUcadastrarPers extends CDU {
 	private Personagem person;
-	private FormPersonagem formPerson;
+	private FormPersonagem2 formPerson;
 
-	public CDUcadastrarPers(FormPersonagem formPerson) {
+	public CDUcadastrarPers(FormPersonagem2 formPerson) {
 		this.formPerson = formPerson;
 		this.formPerson.setPers(this);
 

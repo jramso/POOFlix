@@ -96,7 +96,7 @@ public class CDUMain extends CDU {
     public void execCadPers() {
         bd = new Conecta(usuario, senha, banco);
         bd.connectDB();
-        FormPersonagem telaPers = new FormPersonagem();
+        FormPersonagem2 telaPers = new FormPersonagem2();
         CDUcadastrarPers casoUsoPers = new CDUcadastrarPers(telaPers);
         casoUsoPers.exec();
         bd.disconnectDB();
