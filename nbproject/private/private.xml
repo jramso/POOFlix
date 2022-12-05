@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormEpisodio.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormEpisodio3.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDU.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUMain.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormMain.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormEpisodio.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/DAOPOOFlix.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/Conecta.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarSerie.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormEpisodio3.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarAtor.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/DAOSerie.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormSerie.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/Main.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarEpis.java</file>
         </group>

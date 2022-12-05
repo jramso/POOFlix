@@ -19,8 +19,8 @@ public class CDUMain extends CDU {
     public CDUMain(FormMain form) {
         this.formMain = form;
         this.formMain.setcdu(this);
-        bd = new Conecta(usuario, senha, banco);
-        conexaobd = bd.connectDB();
+        // bd = new Conecta(usuario, senha, banco);
+        // conexaobd = bd.connectDB();
     }
 
     public void exec() {
@@ -33,9 +33,6 @@ public class CDUMain extends CDU {
             System.out.println("Conexão estabelecida com sucesso!\n");
             formMain.exibe();
 
-            System.out.println("\nAguarde, fechando conexão com o banco de dados ..");
-            bd.disconnectDB();
-            System.out.println("conexão encerrada com sucesso.\n");
         } else {
             System.out.println("Problemas ao estabelecer a conexão com o banco de dados!");
             System.out.println("Encerrando do sistema!!\n");
@@ -56,6 +53,12 @@ public class CDUMain extends CDU {
             case "4":
                 execCadAtor();
                 break; // Ator
+            case "5":
+                // execCadPerf();
+                break;
+            case "6":
+                // sair();
+                break;
             default:
                 JOptionPane.showMessageDialog(null, "Opção inválida");
                 break;
@@ -66,32 +69,53 @@ public class CDUMain extends CDU {
         return bd;
     }
 
-    public Connection getconexao() {
-        return conexao;
+    public Connection getconexaobd() {
+        return conexaobd;
     }
 
     public void execCadSerie() {
+        bd = new Conecta(usuario, senha, banco);
+        bd.connectDB();
         FormSerie telaSerie = new FormSerie();
         CDUcadastrarSerie casoUsoSerie = new CDUcadastrarSerie(telaSerie, bd.getConn());
         casoUsoSerie.exec();
+        bd.disconnectDB();
     }
 
     public void execCadEpisodio() {
+        bd = new Conecta(usuario, senha, banco);
+        bd.connectDB();
         FormEpisodio telaEpisodio = new FormEpisodio(formMain);
-        CDUcadastrarEpis casoUsoEpis = new CDUcadastrarEpis(telaEpisodio);
+        CDUcadastrarEpis casoUsoEpis = new CDUcadastrarEpis(telaEpisodio, bd.getConn());
+        telaEpisodio.setcdu(casoUsoEpis);
         casoUsoEpis.exec();
+        bd.disconnectDB();
     }
 
     public void execCadPers() {
+        bd = new Conecta(usuario, senha, banco);
+        bd.connectDB();
         FormPersonagem telaPers = new FormPersonagem();
         CDUcadastrarPers casoUsoPers = new CDUcadastrarPers(telaPers);
         casoUsoPers.exec();
+        bd.disconnectDB();
     }
 
     public void execCadAtor() {
+        bd = new Conecta(usuario, senha, banco);
+        bd.connectDB();
         FormAtor telaAtor = new FormAtor();
         CDUcadastrarAtor casoUsoAtor = new CDUcadastrarAtor(telaAtor);
         casoUsoAtor.exec();
+        bd.disconnectDB();
+
+    }
+
+    public void sair() {
+        System.out.println("\nAguarde, fechando conexão com o banco de dados ..");
+        bd.disconnectDB();
+        System.out.println("conexão encerrada com sucesso.\n");
+
     }
 
 }

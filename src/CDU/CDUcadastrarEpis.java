@@ -2,6 +2,9 @@ package CDU;
 
 import domain.*;
 import persistencia.DAOepisodio;
+
+import java.sql.Connection;
+
 import UI.FormEpisodio;
 
 public class CDUcadastrarEpis extends CDU {
@@ -12,9 +15,10 @@ public class CDUcadastrarEpis extends CDU {
         formEpisodio.exibe();
     }
 
-    public CDUcadastrarEpis(FormEpisodio formEpisodio) {
+    public CDUcadastrarEpis(FormEpisodio formEpisodio, Connection conn) {
         this.formEpisodio = formEpisodio;
         this.formEpisodio.setcdu(this);
+        this.conexaobd = conn;
     }
 
     public String getNomeSerie(int idserie) {
@@ -24,6 +28,7 @@ public class CDUcadastrarEpis extends CDU {
     }
 
     public void salvarEpisodio() {
+        conexaobd= formEpisodio.getform().getCdumain().getconexaobd();
         String id = formEpisodio.getid();
         String numEP = formEpisodio.getnumEP();
         // String idserie = formEpisodio.getidserie();
@@ -42,6 +47,6 @@ public class CDUcadastrarEpis extends CDU {
         System.out.println("Salvando no banco de dados.." + episodio);
         DAOepisodio dao = new DAOepisodio(conexaobd);
         dao.adiciona(episodio);
-        
+
     }
 }
