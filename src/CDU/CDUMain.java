@@ -107,10 +107,9 @@ public class CDUMain extends CDU {
             bd = new Conecta(usuario, senha, banco);
             bd.connectDB();
         }
-        FormAtor telaAtor = new FormAtor2();
-        CDUcadastrarAtor casoUsoAtor = new CDUcadastrarAtor(telaAtor);
+        FormAtor telaAtor = new FormAtor();
+        CDUcadastrarAtor casoUsoAtor = new CDUcadastrarAtor(telaAtor, bd.getConn());
         casoUsoAtor.exec();
-        //bd.disconnectDB();
 
     }
 
