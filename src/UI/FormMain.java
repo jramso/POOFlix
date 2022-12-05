@@ -252,11 +252,6 @@ public class FormMain extends javax.swing.JFrame implements Form {
         cadPerson.setText("3. Cadastrar Personagem");
         cadPerson.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         cadPerson.setContentAreaFilled(false);
-        cadPerson.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadPersonMouseClicked(evt);
-            }
-        });
         cadPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadPersonActionPerformed(evt);
@@ -374,10 +369,6 @@ public class FormMain extends javax.swing.JFrame implements Form {
         System.exit(EXIT_ON_CLOSE);
     }
 
-    private void cadPersonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadPersonMouseClicked
-        op = "3";
-        cdumain.processaOpcao(op);
-    }
 
     private void cadEpMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadEp1MouseClicked
         op = "2";

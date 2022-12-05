@@ -90,25 +90,27 @@ public class CDUMain extends CDU {
         FormEpisodio telaEpisodio = new FormEpisodio();
         CDUcadastrarEpis casoUsoEpis = new CDUcadastrarEpis(telaEpisodio, bd.getConn());
         casoUsoEpis.exec();
-        // bd.disconnectDB();
     }
 
     public void execCadPers() {
-        bd = new Conecta(usuario, senha, banco);
-        bd.connectDB();
-        FormPersonagem2 telaPers = new FormPersonagem2();
-        CDUcadastrarPers casoUsoPers = new CDUcadastrarPers(telaPers);
+        if (bd==null){
+            bd = new Conecta(usuario, senha, banco);
+            bd.connectDB();
+        }
+        FormPersonagem telaPers = new FormPersonagem();
+        CDUcadastrarPers casoUsoPers = new CDUcadastrarPers(telaPers, bd.getConn());
         casoUsoPers.exec();
-        bd.disconnectDB();
     }
 
     public void execCadAtor() {
-        bd = new Conecta(usuario, senha, banco);
-        bd.connectDB();
-        FormAtor telaAtor = new FormAtor();
+        if (bd==null){
+            bd = new Conecta(usuario, senha, banco);
+            bd.connectDB();
+        }
+        FormAtor telaAtor = new FormAtor2();
         CDUcadastrarAtor casoUsoAtor = new CDUcadastrarAtor(telaAtor);
         casoUsoAtor.exec();
-        bd.disconnectDB();
+        //bd.disconnectDB();
 
     }
 

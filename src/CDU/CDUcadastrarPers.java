@@ -3,15 +3,16 @@ package CDU;
 import domain.*;
 import persistencia.DAOpersonagem;
 import UI.FormPersonagem;
+import java.sql.Connection;
 
 public class CDUcadastrarPers extends CDU {
 	private Personagem person;
 	private FormPersonagem formPerson;
 
-	public CDUcadastrarPers(FormPersonagem formPerson) {
+	public CDUcadastrarPers(FormPersonagem formPerson, Connection conexao) {
 		this.formPerson = formPerson;
 		this.formPerson.setPers(this);
-
+                this.conexaobd=conexao;
 	}
 
 	public void exec() {
