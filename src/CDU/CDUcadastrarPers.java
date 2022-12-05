@@ -2,13 +2,13 @@ package CDU;
 
 import domain.*;
 import persistencia.DAOpersonagem;
-import UI.FormPersonagem2;
+import UI.FormPersonagem;
 
 public class CDUcadastrarPers extends CDU {
 	private Personagem person;
-	private FormPersonagem2 formPerson;
+	private FormPersonagem formPerson;
 
-	public CDUcadastrarPers(FormPersonagem2 formPerson) {
+	public CDUcadastrarPers(FormPersonagem formPerson) {
 		this.formPerson = formPerson;
 		this.formPerson.setPers(this);
 
@@ -33,6 +33,32 @@ public class CDUcadastrarPers extends CDU {
 		System.out.println("Salvando no banco de dados.." + person);
 		DAOpersonagem dao = new DAOpersonagem(conexaobd);
 		dao.adiciona(person);
+		formPerson.setVisible(false);
+
+	}
+
+	public void atualizarPersonagem(){
+		int id = formPerson.getId();
+		String nome = formPerson.getNome();
+
+		person = new Personagem(id, nome);
+
+		System.out.println("Atualizando no banco de dados.." + person);
+		DAOpersonagem dao = new DAOpersonagem(conexaobd);
+		dao.atualiza(person);
+		formPerson.setVisible(false);
+
+	}
+	public void deletarPersonagem(){
+		int id = formPerson.getId();
+		String nome = formPerson.getNome();
+
+		person = new Personagem(id, nome);
+
+		System.out.println("Atualizando no banco de dados.." + person);
+		DAOpersonagem dao = new DAOpersonagem(conexaobd);
+		dao.deleta(person);
+		formPerson.setVisible(false);
 
 	}
 }

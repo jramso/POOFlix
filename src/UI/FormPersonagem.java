@@ -7,21 +7,29 @@ package UI;
 import CDU.CDUcadastrarPers;
 import java.awt.Color;
 
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author josue
+ * @since 2.1
+ * Creates new form FormPersonagem
+ * 
  */
 public class FormPersonagem extends javax.swing.JFrame implements Form{
 
-    /**
-     * Creates new form FormPersonagem
-     */
+    /**Id do personagem*/
 	private int idPs;
+    /**Nome do personagem*/
 	private String nomePs;
-        private CDUcadastrarPers cdups; // caso de uso personagem
-        
-        public void setPers(CDUcadastrarPers cdups) {
-            this.cdups = cdups;
+    /**Controlado de caso de uso do personagem */
+    private CDUcadastrarPers cdups;
+    /** Diz ao formulario qual o seu controlador de caso de uso
+     * @param CDUcadastrarPers cdups
+     */
+    public void setPers(CDUcadastrarPers cdups) {
+        this.cdups = cdups;
 	}
 
   
@@ -142,6 +150,7 @@ public class FormPersonagem extends javax.swing.JFrame implements Form{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**Açao do botao de salvar os dados no banco de dados */
     private void salvar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_btnActionPerformed
         // TODO add your handling code here:
         nomePs = nome_pers_TF.getText();
@@ -151,8 +160,27 @@ public class FormPersonagem extends javax.swing.JFrame implements Form{
         
     }//GEN-LAST:event_salvar_btnActionPerformed
 
+    //CRIAR BOTOES DE ATUALIZAR E DELETAR
+
+    private void atualizar_btnActionPerformed(java.awt.event.ActionEvent evt){
+        //TODO
+        nomePs = nome_pers_TF.getText();
+        idPs = Integer.parseInt(id_pers_TF.getText());
+        cdups.atualizarPersonagem();
+    }
+
+    private void deletar_btnActionPerformed(java.awt.event.ActionEvent evt){
+        //TODO
+        nomePs = nome_pers_TF.getText();
+        idPs = Integer.parseInt(id_pers_TF.getText());
+        cdups.deletarPersonagem();
+    }
+
     /**
      * @param args the command line arguments
+     * @Jlabel Titulo ;id_pers_LB ; nome_pers_LB
+     * @JTextField id_pers_TF; nome_pers_TF
+     * @JButton salvar_btn
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,6 +200,10 @@ public class FormPersonagem extends javax.swing.JFrame implements Form{
         initComponents();
         getContentPane().setBackground(Color.BLACK);
         this.setVisible(true);
+
+        list_exibe = new JTable(dados,colunas);
+        barra_rolagem = new JScrollPane(list_exibe);
+        
     }
     
     public int getId() {

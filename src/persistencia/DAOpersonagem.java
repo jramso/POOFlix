@@ -17,8 +17,9 @@ public class DAOpersonagem extends DAOPOOFlix{
     public int adiciona(OBJPOOFlix objpooflix) {
 		try {
 			Personagem personagem = (Personagem) objpooflix;
-                    try (PreparedStatement ps = conexaobd.prepareStatement("insert into personagem values ((select MAX(p.id)+1 from personagem as p), ?)")) {
-                        ps.setString(1, personagem.getNome());
+                    try (PreparedStatement ps = conexaobd.prepareStatement("insert into personagem values (?, ?)")) {
+                        ps.setInt(1, personagem.getId());
+                        ps.setString(2, personagem.getNome());
                         ps.execute();
                     }
 			return 0;
