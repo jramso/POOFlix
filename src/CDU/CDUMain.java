@@ -4,7 +4,6 @@ import java.sql.Connection;
 
 import UI.*;
 import UI.FormEpisodio;
-import UI.FormSerie2;
 import javax.swing.JOptionPane;
 import persistencia.*;
 
@@ -57,7 +56,7 @@ public class CDUMain extends CDU {
                 execCadPerf();
                 break;
             case "6":
-                // sair();
+                sair();
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Opção inválida");
@@ -74,12 +73,13 @@ public class CDUMain extends CDU {
     }
 
     public void execCadSerie() {
-        bd = new Conecta(usuario, senha, banco);
-        bd.connectDB();
-        FormSerie2 telaSerie = new FormSerie2();
+        if (bd==null){
+            bd = new Conecta(usuario, senha, banco);
+            bd.connectDB();
+        }
+        FormSerie telaSerie = new FormSerie();
         CDUcadastrarSerie casoUsoSerie = new CDUcadastrarSerie(telaSerie, bd.getConn());
         casoUsoSerie.exec();
-        bd.disconnectDB();
     }
 
     public void execCadEpisodio() {
@@ -124,10 +124,15 @@ public class CDUMain extends CDU {
     }
 
     public void sair() {
-        System.out.println("\nAguarde, fechando conexão com o banco de dados ..");
-        bd.disconnectDB();
-        System.out.println("conexão encerrada com sucesso.\n");
-
+        if(bd!=null){
+            System.out.println("\nAguarde, fechando conexão com o banco de dados ..");
+            bd.disconnectDB();
+            System.out.println("conexão encerrada com sucesso.\n");
+        }
+        formMain.getCadastra().setVisible(false);
+        formMain.getBtn_red_icon().setVisible(true);
+        formMain.getBtn_green_icon().setVisible(true);
+        formMain.getBtn_yellow_icon().setVisible(true);
     }
 
 }

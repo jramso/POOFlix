@@ -134,7 +134,9 @@ public class FormMain extends javax.swing.JFrame implements Form {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         LB_bemVindo = new javax.swing.JLabel();
@@ -297,44 +299,59 @@ public class FormMain extends javax.swing.JFrame implements Form {
         javax.swing.GroupLayout cadastraLayout = new javax.swing.GroupLayout(cadastra);
         cadastra.setLayout(cadastraLayout);
         cadastraLayout.setHorizontalGroup(
-            cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
-                .addGroup(cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(cadastraLayout.createSequentialGroup()
-                        .addGroup(cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cadPerson))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cadEp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(cadastraLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(101, 101, 101))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(107, Short.MAX_VALUE)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(cadastraLayout.createSequentialGroup()
+                                                .addGroup(cadastraLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                false)
+                                                        .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cadPerson))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(cadastraLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(cadEp, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(cadastraLayout.createSequentialGroup()
+                                                .addGap(101, 101, 101)
+                                                .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(101, 101, 101))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 202,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         cadastraLayout.setVerticalGroup(
-            cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cadEp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cadPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+                cadastraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastraLayout.createSequentialGroup()
+                                .addContainerGap(27, Short.MAX_VALUE)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cadSerie, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cadEp, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(cadastraLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cadPerson, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cadAtor, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(cadPerfo, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(sairCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)));
 
         getContentPane().add(cadastra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 600, 440));
 
@@ -366,9 +383,9 @@ public class FormMain extends javax.swing.JFrame implements Form {
     }
 
     protected void sairCadActionPerformed(ActionEvent evt) {
-        System.exit(EXIT_ON_CLOSE);
+        op = "6";
+        cdumain.processaOpcao(op);
     }
-
 
     private void cadEpMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_cadEp1MouseClicked
         op = "2";
@@ -407,6 +424,22 @@ public class FormMain extends javax.swing.JFrame implements Form {
 
     private void btn_green_iconMouseClicked(java.awt.event.MouseEvent evt) {
         btn_red_iconMouseClicked(evt);
+    }
+
+    public java.awt.Panel getCadastra() {
+        return cadastra;
+    }
+
+    public javax.swing.JButton getBtn_green_icon() {
+        return btn_green_icon;
+    }
+
+    public javax.swing.JButton getBtn_red_icon() {
+        return btn_red_icon;
+    }
+
+    public javax.swing.JButton getBtn_yellow_icon() {
+        return btn_yellow_icon;
     }
 
     /**
