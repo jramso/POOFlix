@@ -5,16 +5,15 @@
         <group>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormPersonagem.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormEpisodio.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/DAOepisodio.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarPers.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormPerformance.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarSerie.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/DAOpersonagem.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormAtor.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDU.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormSerie.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/persistencia/DAOSerie.java</file>
+            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarPf.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUMain.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormPersonagem2.java</file>
             <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/UI/FormMain.java</file>
-            <file>file:/C:/Users/josue/Documents/NetBeansProjects/POOflix/src/CDU/CDUcadastrarEpis.java</file>
         </group>
     </open-files>
 </project-private>
