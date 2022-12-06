@@ -5,13 +5,13 @@ import persistencia.*;
 
 import java.sql.Connection;
 
-import UI.FormSerie;
+import UI.FormSerie2;
 
 public class CDUcadastrarSerie extends CDU {
     private Serie serie;
-    private FormSerie formSerie;
+    private FormSerie2 formSerie;
 
-    public CDUcadastrarSerie(FormSerie formSerie, Connection conexaobd) {
+    public CDUcadastrarSerie(FormSerie2 formSerie, Connection conexaobd) {
         this.formSerie = formSerie;
         this.formSerie.setcdu(this);
         this.conexaobd = conexaobd;

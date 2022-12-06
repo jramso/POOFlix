@@ -3,7 +3,7 @@ package UI;
 //import java.io.Console;
 import CDU.*;
 
-public class FormSerie implements Form {
+public class FormSerie2 implements Form {
     private String id;
     private String titulo;
     private String idademin;

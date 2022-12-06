@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import UI.*;
 import UI.FormEpisodio;
-import UI.FormSerie;
+import UI.FormSerie2;
 import javax.swing.JOptionPane;
 import persistencia.*;
 
@@ -54,7 +54,7 @@ public class CDUMain extends CDU {
                 execCadAtor();
                 break; // Ator
             case "5":
-                // execCadPerf();
+                execCadPerf();
                 break;
             case "6":
                 // sair();
@@ -76,7 +76,7 @@ public class CDUMain extends CDU {
     public void execCadSerie() {
         bd = new Conecta(usuario, senha, banco);
         bd.connectDB();
-        FormSerie telaSerie = new FormSerie();
+        FormSerie2 telaSerie = new FormSerie2();
         CDUcadastrarSerie casoUsoSerie = new CDUcadastrarSerie(telaSerie, bd.getConn());
         casoUsoSerie.exec();
         bd.disconnectDB();
@@ -111,6 +111,16 @@ public class CDUMain extends CDU {
         CDUcadastrarAtor casoUsoAtor = new CDUcadastrarAtor(telaAtor, bd.getConn());
         casoUsoAtor.exec();
 
+    }
+    
+    public void execCadPerf(){
+        if (bd==null){
+            bd = new Conecta(usuario, senha, banco);
+            bd.connectDB();
+        }
+        FormPerformance formPf = new FormPerformance();
+        CDUcadastrarPf casoUsoPf = new CDUcadastrarPf(formPf, bd.getConn());
+        casoUsoPf.exec();
     }
 
     public void sair() {

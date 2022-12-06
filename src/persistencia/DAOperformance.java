@@ -20,9 +20,9 @@ public class DAOperformance extends DAOPOOFlix{
 		try {
 			Performance ator_personagem = (Performance) objpooflix;
                     try (PreparedStatement ps = conexaobd.prepareStatement("insert into performance(idep, idpers, idator ) values (?, ?, ?)")) {
-                        ps.setInt(1, (ator_personagem.getidep().getId()));
-                        ps.setInt(2, (ator_personagem.getidperson().getId()));
-                        ps.setInt(3, (ator_personagem.getator().getId()));
+                        ps.setInt(1, (ator_personagem.getIdEpisodio()));
+                        ps.setInt(2, (ator_personagem.getIdPers()));
+                        ps.setInt(3, (ator_personagem.getIdAtor()));
                         ps.execute();
                     }
 			return 0;
@@ -36,9 +36,11 @@ public class DAOperformance extends DAOPOOFlix{
 	public int atualiza(OBJPOOFlix objpooflix) {
 		try {
 			Performance perf = (Performance) objpooflix;
-                    try (PreparedStatement ps = conexaobd.prepareStatement("update performance set idep=? where id=?")) {
-                        ps.setInt(1, (perf.getidep().getId()));
-                        //ps.setString(2, perf.());
+                    try (PreparedStatement ps = conexaobd.prepareStatement("update performance set idep=?, idpers=?, idator=? where id=?")) {
+                        ps.setInt(1, (perf.getIdEpisodio()));
+                        ps.setInt(2, (perf.getIdPers()));
+                        ps.setInt(3, (perf.getIdAtor()));
+                        ps.setInt(4, (perf.getId()));
                         ps.executeUpdate();
                     }
 			return 0;
@@ -52,9 +54,9 @@ public class DAOperformance extends DAOPOOFlix{
 		try {
 			Performance Perf = (Performance) objpooflix;
                     try (PreparedStatement ps = conexaobd.prepareStatement("delete from Performance where idep=? and idpers =? and idator=?")) {
-                        ps.setInt(1, Perf.getidep().getId());
-                        ps.setInt(2, Perf.getidperson().getId());
-                        ps.setInt(1, Perf.getator().getId());
+                        ps.setInt(1, Perf.getIdEpisodio());
+                        ps.setInt(2, Perf.getIdPers());
+                        ps.setInt(3, Perf.getIdAtor());
                         ps.executeUpdate();
                     }
 			return 0;

@@ -57,7 +57,7 @@ public class FormPersonagem extends javax.swing.JFrame implements Form {
         atualizar_btn = new javax.swing.JButton();
         deletar_btn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 650));
         setPreferredSize(new java.awt.Dimension(950, 650));
 
@@ -175,6 +175,7 @@ public class FormPersonagem extends javax.swing.JFrame implements Form {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /** Açao do botao de salvar os dados no banco de dados */
@@ -185,6 +186,9 @@ public class FormPersonagem extends javax.swing.JFrame implements Form {
 
         cdups.salvarPersonagem();
         JOptionPane.showMessageDialog(null, "Personagem:" + nomePs + " Salvo com sucesso");
+        
+        limpacampos();
+
     }// GEN-LAST:event_salvar_btnActionPerformed
 
     // CRIAR BOTOES DE ATUALIZAR E DELETAR
@@ -194,6 +198,8 @@ public class FormPersonagem extends javax.swing.JFrame implements Form {
         nomePs = nome_pers_TF.getText();
         idPs = Integer.parseInt(id_pers_TF.getText());
         cdups.atualizarPersonagem();
+        limpacampos();
+
     }
 
     private void deletar_btnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +207,14 @@ public class FormPersonagem extends javax.swing.JFrame implements Form {
         nomePs = nome_pers_TF.getText();
         idPs = Integer.parseInt(id_pers_TF.getText());
         cdups.deletarPersonagem();
+        limpacampos();
+    }
+    
+    public void limpacampos(){
+        
+        nome_pers_TF.setText("");
+        id_pers_TF.setText("");  
+        
     }
 
     /**

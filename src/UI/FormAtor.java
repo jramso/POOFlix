@@ -51,7 +51,7 @@ public class FormAtor extends javax.swing.JFrame implements Form {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Ator");
         setMinimumSize(new java.awt.Dimension(950, 650));
         setName("FrameAtor"); // NOI18N
@@ -100,6 +100,10 @@ public class FormAtor extends javax.swing.JFrame implements Form {
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 102, 102));
+
+        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
